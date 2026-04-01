@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mahi Rahman | Electrical Engineer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">MR<span class="accent">.</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#goals">Goals</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <p class="hero-greeting">Hello, I'm</p>
+      <h1 class="hero-name">Mahi Rahman</h1>
+      <div class="hero-typed-wrapper">
+        <span class="hero-typed-prefix">I build </span>
+        <span class="hero-typed" id="typedText"></span>
+        <span class="typed-cursor">|</span>
+      </div>
+      <p class="hero-tagline">Electrical Engineering Student at Georgia Tech</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-scroll-indicator">
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+    <!-- Animated circuit traces -->
+    <svg class="circuit-svg" viewBox="0 0 1200 800" preserveAspectRatio="none">
+      <path class="circuit-path cp1" d="M0,400 H200 L250,350 H450 L500,400 H700 L750,300 H900 L950,400 H1200" />
+      <path class="circuit-path cp2" d="M0,500 H150 L200,450 H400 L450,500 H600 L650,400 H850 L900,500 H1200" />
+      <circle class="circuit-node" cx="250" cy="350" r="4" />
+      <circle class="circuit-node" cx="500" cy="400" r="4" />
+      <circle class="circuit-node" cx="750" cy="300" r="4" />
+      <circle class="circuit-node" cx="200" cy="450" r="4" />
+      <circle class="circuit-node" cx="650" cy="400" r="4" />
+    </svg>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">01.</span> About Me</h2>
+      <div class="about-grid">
+        <div class="about-image-wrapper">
+          <div class="about-image-placeholder">
+            <img src="images/headshot.jpg" alt="Mahi Rahman headshot" class="about-photo">
+          </div>
+          <div class="about-image-border"></div>
+        </div>
+        <div class="about-text">
+          <p>
+            I'm Mahi Rahman, a sophomore Electrical Engineering student at the Georgia Institute of Technology.
+            Born and raised in Atlanta, Georgia, I grew up surrounded by one of the fastest-growing tech ecosystems
+            in the Southeast. The city's vibrant innovation scene, from the startups along the Atlanta Tech Village
+            corridor to the engineering powerhouses headquartered nearby, sparked my curiosity early and set me on
+            the path toward engineering.
+          </p>
+          <p>
+            What drives me is a genuine passion for building things that work in the real world. Whether it's wiring
+            up a microcontroller-based monitoring system, designing a 3D-printed enclosure for embedded electronics,
+            or getting a large language model to run on a tiny ESP32, I'm happiest when I'm turning an idea into
+            something tangible. I take deep interest in my work and I'm always looking for the next thing to learn. That
+            mindset led me to present one of my projects to engineers at Google, an experience that reinforced my belief
+            that the best way to grow is to put your work out there and invite feedback.
+          </p>
+          <p>
+            Outside the lab, you'll find me on a hiking trail exploring the North Georgia mountains or at the gym
+            pushing through a new personal record. I believe that discipline in fitness translates directly into discipline
+            in engineering. Both demand consistency, patience, and a willingness to fail forward. Atlanta's access to both
+            world-class tech and incredible natural landscapes has shaped who I am: someone equally at home debugging
+            firmware and summiting a ridge at sunrise.
+          </p>
+          <p>
+            I'm currently exploring the intersections of semiconductors, electric circuits, power systems, and robotics
+            as I work to find where I can make the greatest impact. My goal is to become an industry engineer at the
+            forefront of hardware innovation, designing the chips, circuits, and systems that power the next generation
+            of technology.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">02.</span> Skills & Interests</h2>
+      <div class="skills-grid">
+        <div class="skill-card" data-tilt>
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="14" width="32" height="20" rx="3" stroke="currentColor" stroke-width="2"/><path d="M14 20l4 4-4 4M22 28h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Embedded Systems</h3>
+          <p>Firmware development in C/C++ on microcontrollers including ESP32, Arduino, and STM32 platforms.</p>
+        </div>
+        <div class="skill-card" data-tilt>
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2"/><path d="M24 10v4M24 34v4M10 24h4M34 24h4M14 14l3 3M31 31l3 3M14 34l3-3M31 17l3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Circuit Design</h3>
+          <p>Analog and digital circuit design, prototyping, PCB layout, and hands-on soldering and testing.</p>
+        </div>
+        <div class="skill-card" data-tilt>
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M8 38V20l16-10 16 10v18" stroke="currentColor" stroke-width="2"/><path d="M18 38V28h12v10" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="20" r="3" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>Power Systems</h3>
+          <p>Fundamentals of power electronics, energy conversion, and electrical power distribution systems.</p>
+        </div>
+        <div class="skill-card" data-tilt>
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M16 34l-6 6M32 34l6 6M24 8v6M17 28a7 7 0 1114 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="16" y="28" width="16" height="6" rx="2" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>Robotics</h3>
+          <p>Sensor integration, actuator control, and system-level design for autonomous and semi-autonomous robots.</p>
+        </div>
+        <div class="skill-card" data-tilt>
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M12 12h10v10H12zM26 12h10v10H26zM12 26h10v10H12zM26 26h10v10H26z" stroke="currentColor" stroke-width="2"/><path d="M22 17h4M17 22v4M31 22v4M22 31h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Semiconductors</h3>
+          <p>Interest in VLSI design, semiconductor physics, and the fabrication processes that drive modern computing.</p>
+        </div>
+        <div class="skill-card" data-tilt>
+          <div class="skill-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M10 38l8-12 6 6 8-14 6 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="8" y="10" width="32" height="28" rx="3" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>Programming</h3>
+          <p>Working proficiency in C/C++, Python, JavaScript, and TypeScript with a focus on continuous improvement.</p>
+        </div>
+      </div>
+      <div class="skills-tools">
+        <h3>Tools & Technologies</h3>
+        <div class="tools-ticker">
+          <div class="tools-track">
+            <span class="tool-tag">C/C++</span>
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">JavaScript</span>
+            <span class="tool-tag">TypeScript</span>
+            <span class="tool-tag">ESP32</span>
+            <span class="tool-tag">Arduino</span>
+            <span class="tool-tag">3D Printing</span>
+            <span class="tool-tag">Soldering</span>
+            <span class="tool-tag">Git/GitHub</span>
+            <span class="tool-tag">Embedded C</span>
+            <span class="tool-tag">Oscilloscope</span>
+            <span class="tool-tag">Multimeter</span>
+            <!-- Duplicate for seamless scroll -->
+            <span class="tool-tag">C/C++</span>
+            <span class="tool-tag">Python</span>
+            <span class="tool-tag">JavaScript</span>
+            <span class="tool-tag">TypeScript</span>
+            <span class="tool-tag">ESP32</span>
+            <span class="tool-tag">Arduino</span>
+            <span class="tool-tag">3D Printing</span>
+            <span class="tool-tag">Soldering</span>
+            <span class="tool-tag">Git/GitHub</span>
+            <span class="tool-tag">Embedded C</span>
+            <span class="tool-tag">Oscilloscope</span>
+            <span class="tool-tag">Multimeter</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">03.</span> Projects</h2>
+      <p class="section-subtitle">A selection of hands-on engineering projects I've built. This section will grow throughout my time at Georgia Tech.</p>
+
+      <div class="projects-grid">
+        <!-- Project 1: Soil Moisture -->
+        <div class="project-card" id="project-soil">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="project-image-placeholder">
+                <img src="images/soilmoisture.jpg" alt="Soil Moisture Monitoring System" data-full="images/soilmoisture.jpg">
+                <button class="expand-btn" data-img="images/soilmoisture.jpg" aria-label="View full image">
+                  <svg viewBox="0 0 20 20" fill="none"><path d="M3 3h5M3 3v5M17 3h-5M17 3v5M3 17h5M3 17v-5M17 17h-5M17 17v-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <div class="project-info">
+                <span class="project-tag">Embedded Systems</span>
+                <span class="project-tag">Instrumentation</span>
+                <h3>Soil Moisture Monitoring System</h3>
+                <p class="project-date">Fall 2024 | Independent Project</p>
+                <p class="project-hint">Click to read more</p>
+              </div>
+            </div>
+            <div class="project-card-back">
+              <h3>Soil Moisture Monitoring System</h3>
+              <div class="project-details">
+                <p>
+                  Designed and built a microcontroller-based system for acquiring and processing soil moisture data
+                  in real time. The project combined embedded firmware, sensor calibration, and mechanical design into
+                  a complete, field-ready monitoring solution.
+                </p>
+                <h4>Key Contributions</h4>
+                <ul>
+                  <li>Programmed embedded C/C++ firmware to sample capacitive soil moisture sensor data at configurable intervals, apply polynomial calibration constants for accuracy, and trigger threshold-based alerts when moisture levels fell outside optimal ranges.</li>
+                  <li>Designed and fabricated a custom 3D-printed enclosure using Fusion 360, optimizing sensor placement for consistent ground contact while protecting the microcontroller and wiring from environmental exposure.</li>
+                  <li>Implemented a serial data output pipeline for logging moisture readings over time, enabling trend analysis and informed irrigation decisions.</li>
+                </ul>
+                <h4>Impact & Takeaways</h4>
+                <p>
+                  This project deepened my understanding of sensor interfacing, signal conditioning, and the full
+                  embedded development cycle, from breadboard prototype to a physically enclosed, deployable system.
+                  The skills I developed here directly apply to industrial IoT and precision agriculture, sectors where
+                  real-time environmental monitoring is increasingly critical.
+                </p>
+              </div>
+              <p class="project-hint">Click to go back</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: ESP32 LLM -->
+        <div class="project-card" id="project-llm">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="project-image-placeholder">
+                <img src="images/esp32-llm.jpg" alt="LLM on ESP32" data-full="images/esp32-llm.jpg">
+                <button class="expand-btn" data-img="images/esp32-llm.jpg" aria-label="View full image">
+                  <svg viewBox="0 0 20 20" fill="none"><path d="M3 3h5M3 3v5M17 3h-5M17 3v5M3 17h5M3 17v-5M17 17h-5M17 17v-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <div class="project-info">
+                <span class="project-tag">AI / ML</span>
+                <span class="project-tag">Embedded Systems</span>
+                <h3>LLM on ESP32</h3>
+                <p class="project-date">Personal Project</p>
+                <p class="project-hint">Click to read more</p>
+              </div>
+            </div>
+            <div class="project-card-back">
+              <h3>LLM on ESP32</h3>
+              <div class="project-details">
+                <p>
+                  Explored the frontier of edge AI by running a large language model on an ESP32 microcontroller,
+                  a device with just a few hundred kilobytes of RAM. This project pushed the boundaries of what's
+                  possible on resource-constrained hardware and required creative optimization at every level.
+                </p>
+                <h4>Key Contributions</h4>
+                <ul>
+                  <li>Investigated model quantization and compression techniques to fit an LLM within the ESP32's tight memory constraints.</li>
+                  <li>Optimized inference pipelines to achieve usable response times on a low-power microcontroller.</li>
+                  <li>Demonstrated that meaningful natural language processing can happen at the edge, without relying on cloud infrastructure.</li>
+                </ul>
+                <h4>Impact & Takeaways</h4>
+                <p>
+                  This project sits at the intersection of AI and embedded systems, two fields that are rapidly converging.
+                  Working within severe hardware limitations taught me more about efficient computing than any textbook could,
+                  and reinforced my belief that the future of AI isn't just in the cloud. It's on the chip.
+                </p>
+              </div>
+              <p class="project-hint">Click to go back</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: ESP32 ChatGPT Display -->
+        <div class="project-card" id="project-chatgpt">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="project-image-placeholder">
+                <img src="images/chatgpt-terminal.jpg" alt="ESP32 ChatGPT Terminal" data-full="images/chatgpt-terminal.jpg">
+                <button class="expand-btn" data-img="images/chatgpt-terminal.jpg" aria-label="View full image">
+                  <svg viewBox="0 0 20 20" fill="none"><path d="M3 3h5M3 3v5M17 3h-5M17 3v5M3 17h5M3 17v-5M17 17h-5M17 17v-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <div class="project-info">
+                <span class="project-tag">IoT</span>
+                <span class="project-tag">API Integration</span>
+                <h3>ESP32 ChatGPT Terminal</h3>
+                <p class="project-date">Personal Project</p>
+                <p class="project-hint">Click to read more</p>
+              </div>
+            </div>
+            <div class="project-card-back">
+              <h3>ESP32 ChatGPT Terminal</h3>
+              <div class="project-details">
+                <p>
+                  Built a standalone, handheld AI terminal by connecting an ESP32 microcontroller with an integrated
+                  display to the ChatGPT API over Wi-Fi. The device accepts user input, sends queries to the API, and
+                  renders the response on-screen with physical button-based scrolling.
+                </p>
+                <h4>Key Contributions</h4>
+                <ul>
+                  <li>Established a secure HTTPS connection from the ESP32 to OpenAI's API endpoint, handling JSON serialization/deserialization on a memory-constrained device.</li>
+                  <li>Implemented a text rendering engine on the integrated display with word-wrapping, page buffering, and smooth scrolling via physical push-button interrupts.</li>
+                  <li>Designed the user interaction flow to feel responsive despite network latency, including loading indicators and chunked response display.</li>
+                </ul>
+                <h4>Impact & Takeaways</h4>
+                <p>
+                  This project combined networking, UI design, and embedded programming into a single, cohesive device.
+                  It demonstrated that powerful cloud AI services can be made accessible through minimal, low-cost hardware,
+                  an approach with applications in education, accessibility, and rapid prototyping of AI-powered tools.
+                </p>
+              </div>
+              <p class="project-hint">Click to go back</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE SECTION ===== -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">04.</span> Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item" data-aos>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">June &ndash; July 2023</span>
+            <h3>Software Engineer Intern</h3>
+            <h4>Big Leap &middot; Atlanta, GA</h4>
+            <ul>
+              <li>Developed and maintained modular software components, improving code reuse and development efficiency across projects.</li>
+              <li>Collaborated with engineers and designers to refine system architecture and implement frontend features aligned with product requirements.</li>
+              <li>Applied systematic debugging and testing workflows, improving software reliability and long-term maintainability of the codebase.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item" data-aos>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Previous Experience</span>
+            <h3>Automotive Technician</h3>
+            <h4>Rick Hendrick Chevrolet</h4>
+            <ul>
+              <li>Diagnosed and repaired complex automotive electrical and mechanical systems, developing strong troubleshooting instincts that translate directly to hardware debugging.</li>
+              <li>Gained hands-on experience with diagnostic tools, wiring harnesses, and system schematics, building a practical understanding of real-world engineered systems.</li>
+              <li>Strengthened communication skills by explaining technical issues and repair options to customers in clear, non-technical language.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item highlight-item" data-aos>
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="timeline-date">Notable Moment</span>
+            <h3>Project Showcase at Google</h3>
+            <h4>Google &middot; Invited Presentation</h4>
+            <p>
+              Presented one of my personal engineering projects to a group of Google engineers. The experience
+              sharpened my ability to communicate complex technical work to a senior audience and gave me invaluable
+              feedback that has shaped how I approach project design and documentation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CAREER GOALS SECTION ===== -->
+  <section id="goals" class="section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">05.</span> Career Goals</h2>
+      <div class="goals-wrapper">
+        <div class="goals-intro">
+          <p>
+            My long-term aspiration is to become an industry engineer at a leading technology or automotive company,
+            organizations like NVIDIA, Tesla, Rivian, or Toyota, where I can design the hardware systems that push the
+            boundaries of computing, electrification, and autonomy. I want to be at the table where the next generation of
+            chips, power electronics, and robotic systems are conceived and built.
+          </p>
+          <p>
+            Getting there requires a deliberate, step-by-step approach. Below is my roadmap, a set of milestones I've
+            mapped out using my ECE coursework, co-curricular opportunities at Georgia Tech, and industry insights gathered
+            through networking and my internship experiences.
+          </p>
+        </div>
+
+        <div class="goals-roadmap">
+          <div class="roadmap-step" data-step="1">
+            <div class="step-icon">
+              <svg viewBox="0 0 40 40" fill="none"><rect x="6" y="10" width="28" height="20" rx="3" stroke="currentColor" stroke-width="2"/><path d="M12 18h16M12 22h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div class="step-content">
+              <h3>Build a Strong Technical Foundation</h3>
+              <span class="step-timeline">Now &ndash; Spring 2027</span>
+              <p>
+                Complete core ECE coursework in circuit analysis, semiconductor devices, power electronics, and signals
+                and systems. Pursue advanced electives in VLSI design and embedded systems to develop specialized depth
+                in hardware engineering. Maintain strong academic performance while actively connecting theory to hands-on projects.
+              </p>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-step="2">
+            <div class="step-icon">
+              <svg viewBox="0 0 40 40" fill="none"><path d="M20 6v28M6 20h28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="20" r="14" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="step-content">
+              <h3>Gain Industry Experience Through Internships</h3>
+              <span class="step-timeline">Summer 2026 &ndash; Summer 2028</span>
+              <p>
+                Secure internships or co-op positions at semiconductor, automotive, or robotics companies, targeting
+                organizations like NVIDIA, Tesla, Rivian, or Toyota. Focus on roles involving hardware design, embedded
+                systems, or power electronics to gain real-world engineering experience and build a professional network
+                in the industry.
+              </p>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-step="3">
+            <div class="step-icon">
+              <svg viewBox="0 0 40 40" fill="none"><path d="M10 30l6-8 5 4 9-14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="8" width="28" height="24" rx="3" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="step-content">
+              <h3>Engage in Undergraduate Research</h3>
+              <span class="step-timeline">Spring 2026 &ndash; Graduation</span>
+              <p>
+                Join a research lab at Georgia Tech focused on power systems, robotics, or semiconductor devices. Contribute
+                to publishable work and gain exposure to cutting-edge methods that go beyond the classroom. Research experience
+                strengthens both technical depth and the ability to think critically about open-ended problems. These are skills that
+                distinguish strong industry engineers.
+              </p>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-step="4">
+            <div class="step-icon">
+              <svg viewBox="0 0 40 40" fill="none"><path d="M12 28V16l8-6 8 6v12" stroke="currentColor" stroke-width="2"/><path d="M17 28v-6h6v6" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <div class="step-content">
+              <h3>Develop Professional Presence & Network</h3>
+              <span class="step-timeline">Ongoing</span>
+              <p>
+                Continue building this ePortfolio as a living record of my growth. Attend career fairs, IEEE events, and
+                industry conferences. Leverage LinkedIn and GitHub to share projects and connect with professionals in
+                target fields. The Google showcase taught me that visibility matters. Putting your work in front of the
+                right people opens doors that applications alone cannot.
+              </p>
+            </div>
+          </div>
+
+          <div class="roadmap-step" data-step="5">
+            <div class="step-icon">
+              <svg viewBox="0 0 40 40" fill="none"><polygon points="20,6 24,16 34,16 26,22 28,32 20,26 12,32 14,22 6,16 16,16" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </div>
+            <div class="step-content">
+              <h3>Launch My Career as an Industry Engineer</h3>
+              <span class="step-timeline">Post-Graduation &middot; 2028+</span>
+              <p>
+                Secure a full-time hardware engineering role at a top-tier technology or automotive company. Contribute to
+                the design and development of next-generation semiconductors, power systems, or robotic platforms. Long-term,
+                I aim to grow into a senior technical role where I can lead projects, mentor junior engineers, and drive
+                innovation at scale.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESUME SECTION ===== -->
+  <section id="resume" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">06.</span> Resume</h2>
+      <div class="resume-wrapper">
+        <div class="resume-preview">
+          <iframe src="Mahi_Rahman_Resume_.pdf" class="resume-embed" title="Mahi Rahman Resume"></iframe>
+        </div>
+        <div class="resume-actions">
+          <a href="Mahi_Rahman_Resume_.pdf" target="_blank" class="btn btn-primary">View Full Resume</a>
+          <a href="Mahi_Rahman_Resume_.pdf" download class="btn btn-outline">Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title"><span class="section-number">07.</span> Get in Touch</h2>
+      <div class="contact-wrapper">
+        <p class="contact-text">
+          I'm always open to connecting with fellow engineers, recruiters, and anyone passionate about technology.
+          Whether you have an opportunity, a question, or just want to talk circuits, don't hesitate to reach out.
+        </p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/mahi-rahman1" target="_blank" rel="noopener" class="contact-card">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/mahioi" target="_blank" rel="noopener" class="contact-card">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a href="mailto:mrahman370@gatech.edu" class="contact-card">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>Email</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <p>Designed & Built by Mahi Rahman &middot; 2025</p>
+      <p class="footer-sub">Georgia Institute of Technology &middot; Electrical Engineering</p>
+    </div>
+  </footer>
+
+  <!-- ===== LIGHTBOX MODAL ===== -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <img src="" alt="Full size project image" id="lightboxImg">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
