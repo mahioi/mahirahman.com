@@ -217,23 +217,59 @@
             <div class="project-card-back">
               <h3>Soil Moisture Monitoring System</h3>
               <div class="project-details">
+                <h4>Overview</h4>
                 <p>
-                  Designed and built a microcontroller-based system for acquiring and processing soil moisture data
-                  in real time. The project combined embedded firmware, sensor calibration, and mechanical design into
-                  a complete, field-ready monitoring solution.
+                  This independent project focused on designing and building a complete microcontroller-based system
+                  for acquiring and processing soil moisture data in real time. The motivation came from wanting to
+                  understand how embedded sensors can be used to automate environmental monitoring, a field with
+                  growing applications in precision agriculture, smart greenhouses, and sustainable land management.
+                  The project combined embedded firmware development, analog sensor calibration, serial data logging,
+                  and mechanical enclosure design into a single, field-ready monitoring solution.
                 </p>
-                <h4>Key Contributions</h4>
-                <ul>
-                  <li>Programmed embedded C/C++ firmware to sample capacitive soil moisture sensor data at configurable intervals, apply polynomial calibration constants for accuracy, and trigger threshold-based alerts when moisture levels fell outside optimal ranges.</li>
-                  <li>Designed and fabricated a custom 3D-printed enclosure using Fusion 360, optimizing sensor placement for consistent ground contact while protecting the microcontroller and wiring from environmental exposure.</li>
-                  <li>Implemented a serial data output pipeline for logging moisture readings over time, enabling trend analysis and informed irrigation decisions.</li>
-                </ul>
-                <h4>Impact & Takeaways</h4>
+                <h4>Technical Approach</h4>
                 <p>
-                  This project deepened my understanding of sensor interfacing, signal conditioning, and the full
-                  embedded development cycle, from breadboard prototype to a physically enclosed, deployable system.
-                  The skills I developed here directly apply to industrial IoT and precision agriculture, sectors where
-                  real-time environmental monitoring is increasingly critical.
+                  The system is built around an ESP32 microcontroller paired with a capacitive soil moisture sensor.
+                  I chose a capacitive sensor over a resistive one because capacitive sensors are more durable and
+                  less prone to corrosion over time, making them better suited for long-term outdoor deployment.
+                  The firmware, written in embedded C/C++, samples the sensor's analog output at configurable intervals
+                  and converts raw ADC readings into calibrated moisture percentages using polynomial calibration
+                  constants derived from controlled test measurements.
+                </p>
+                <p>
+                  A threshold-based alert system was implemented so that the device can flag when soil moisture levels
+                  drop below or rise above user-defined bounds. These alerts are output over serial and could easily
+                  be extended to trigger an LED, buzzer, or wireless notification in a future iteration. Data is
+                  continuously logged over the serial interface, allowing readings to be captured on a connected
+                  computer for trend analysis and visualization.
+                </p>
+                <h4>Mechanical Design</h4>
+                <p>
+                  To make the system practical for real-world use, I designed a custom 3D-printed enclosure in
+                  Fusion 360. The enclosure protects the microcontroller and wiring from moisture, dirt, and
+                  physical damage while keeping the sensor probe exposed for consistent ground contact. I went
+                  through multiple design iterations, adjusting wall thickness, cable routing channels, and
+                  ventilation slots to balance protection with accessibility for maintenance and reprogramming.
+                </p>
+                <h4>Results and Impact</h4>
+                <p>
+                  The final system reliably monitors soil conditions and outputs data that can inform irrigation
+                  decisions. Testing showed consistent and repeatable readings across different soil types when
+                  properly calibrated. I validated the system by comparing its output against a commercial soil
+                  moisture meter and found that my calibrated readings fell within an acceptable margin of error
+                  for agricultural monitoring purposes.
+                </p>
+                <p>
+                  This project deepened my understanding of the full embedded development cycle, from breadboard
+                  prototyping and firmware debugging to physical enclosure fabrication and field testing. It also
+                  introduced me to the challenges of designing electronics for outdoor environments, where
+                  temperature swings, moisture ingress, and physical wear all affect system longevity. The skills
+                  I built here, including sensor interfacing, signal conditioning, and iterative hardware design,
+                  are directly applicable to industrial IoT, environmental monitoring, and any domain where
+                  physical-world data needs to be captured and processed by embedded electronics.
+                  Looking ahead, I plan to extend this project with wireless data transmission using the ESP32's
+                  built-in Bluetooth or Wi-Fi capabilities, enabling remote monitoring through a web dashboard
+                  or mobile application. This would transform the system from a local data logger into a true
+                  connected IoT device.
                 </p>
               </div>
               <p class="project-hint">Click to go back</p>
@@ -262,22 +298,55 @@
             <div class="project-card-back">
               <h3>LLM on ESP32</h3>
               <div class="project-details">
+                <h4>Overview</h4>
                 <p>
-                  Explored the frontier of edge AI by running a large language model on an ESP32 microcontroller,
-                  a device with just a few hundred kilobytes of RAM. This project pushed the boundaries of what's
-                  possible on resource-constrained hardware and required creative optimization at every level.
+                  This project explored the frontier of edge AI by attempting to run a large language model on an
+                  ESP32 microcontroller, a device with just a few hundred kilobytes of usable RAM. The goal was
+                  to investigate how far natural language processing can be pushed on resource-constrained hardware
+                  without relying on cloud connectivity. This sits at the intersection of two rapidly converging
+                  fields: artificial intelligence and embedded systems.
                 </p>
-                <h4>Key Contributions</h4>
-                <ul>
-                  <li>Investigated model quantization and compression techniques to fit an LLM within the ESP32's tight memory constraints.</li>
-                  <li>Optimized inference pipelines to achieve usable response times on a low-power microcontroller.</li>
-                  <li>Demonstrated that meaningful natural language processing can happen at the edge, without relying on cloud infrastructure.</li>
-                </ul>
-                <h4>Impact & Takeaways</h4>
+                <h4>Technical Approach</h4>
                 <p>
-                  This project sits at the intersection of AI and embedded systems, two fields that are rapidly converging.
-                  Working within severe hardware limitations taught me more about efficient computing than any textbook could,
-                  and reinforced my belief that the future of AI isn't just in the cloud. It's on the chip.
+                  Running any form of language model on a microcontroller requires aggressive optimization at every
+                  level of the stack. I researched and experimented with model quantization techniques, which reduce
+                  the precision of model weights from 32-bit floating point down to 8-bit or even 4-bit integers.
+                  This dramatically shrinks memory requirements while preserving a usable level of output quality.
+                  I also explored model pruning, which removes less important connections in the neural network to
+                  further reduce the computational footprint.
+                </p>
+                <p>
+                  On the firmware side, I optimized the inference pipeline to minimize memory allocation overhead
+                  and reduce latency between token generations. The ESP32's dual-core architecture was leveraged
+                  to separate the inference computation from the I/O handling, ensuring that the device remained
+                  responsive during generation. Memory management was a constant challenge, requiring careful use
+                  of heap allocation and buffer reuse to avoid fragmentation on a system with no virtual memory.
+                </p>
+                <h4>Challenges and Learning</h4>
+                <p>
+                  The biggest challenge was balancing model capability against hardware limitations. A more capable
+                  model produces better output but requires more memory and processing time than the ESP32 can
+                  comfortably provide. Finding the sweet spot required extensive experimentation with different model
+                  architectures, quantization levels, and context window sizes. Debugging was also more difficult
+                  than typical software development because errors often manifested as subtle memory corruption
+                  rather than clean error messages.
+                </p>
+                <h4>Results and Impact</h4>
+                <p>
+                  The project successfully demonstrated that meaningful text generation can happen locally on a
+                  microcontroller, even if the output quality and speed do not match cloud-hosted models. Working
+                  within these severe hardware limitations taught me more about efficient computing, memory management,
+                  and optimization than any textbook could. It reinforced my belief that the future of AI is not
+                  exclusively in the cloud. There is a growing need for on-device intelligence in applications where
+                  latency, privacy, or connectivity constraints make cloud-based solutions impractical, and this
+                  project gave me hands-on experience with the engineering tradeoffs involved. It also
+                  sharpened my C/C++ skills in ways that conventional software projects do not, since every byte
+                  of memory and every CPU cycle matters when you are working at the hardware level. The debugging
+                  process alone, using serial output, logic analyzers, and memory profiling tools, taught me
+                  systematic approaches to diagnosing problems that I continue to apply in all of my embedded work.
+                  As edge AI continues to mature, I believe the ability to deploy models on low-cost, low-power
+                  hardware will become a critical skill for engineers working in consumer electronics, wearables,
+                  and autonomous systems.
                 </p>
               </div>
               <p class="project-hint">Click to go back</p>
@@ -306,22 +375,55 @@
             <div class="project-card-back">
               <h3>ESP32 ChatGPT Terminal</h3>
               <div class="project-details">
+                <h4>Overview</h4>
                 <p>
-                  Built a standalone, handheld AI terminal by connecting an ESP32 microcontroller with an integrated
-                  display to the ChatGPT API over Wi-Fi. The device accepts user input, sends queries to the API, and
-                  renders the response on-screen with physical button-based scrolling.
+                  This project involved building a standalone, handheld AI terminal by connecting an ESP32
+                  microcontroller with an integrated display to OpenAI's ChatGPT API over Wi-Fi. The idea was
+                  to create a dedicated, screen-based device that lets a user type a question, send it to the
+                  cloud, and read the AI-generated response directly on the device's display, all without needing
+                  a phone or computer. The project brought together networking, embedded UI design, and firmware
+                  programming into a single cohesive piece of hardware.
                 </p>
-                <h4>Key Contributions</h4>
-                <ul>
-                  <li>Established a secure HTTPS connection from the ESP32 to OpenAI's API endpoint, handling JSON serialization/deserialization on a memory-constrained device.</li>
-                  <li>Implemented a text rendering engine on the integrated display with word-wrapping, page buffering, and smooth scrolling via physical push-button interrupts.</li>
-                  <li>Designed the user interaction flow to feel responsive despite network latency, including loading indicators and chunked response display.</li>
-                </ul>
-                <h4>Impact & Takeaways</h4>
+                <h4>Technical Approach</h4>
                 <p>
-                  This project combined networking, UI design, and embedded programming into a single, cohesive device.
-                  It demonstrated that powerful cloud AI services can be made accessible through minimal, low-cost hardware,
-                  an approach with applications in education, accessibility, and rapid prototyping of AI-powered tools.
+                  The core of the system is an ESP32 connected to a small integrated screen. On boot, the device
+                  connects to a configured Wi-Fi network and waits for user input. When a query is submitted, the
+                  firmware establishes a secure HTTPS connection to OpenAI's API endpoint, constructs a properly
+                  formatted JSON request payload, and sends it over the network. Handling HTTPS on a microcontroller
+                  required configuring TLS certificates and managing the handshake process within tight memory
+                  constraints. The API response is received as a JSON object, parsed on-device, and the relevant
+                  text content is extracted for display.
+                </p>
+                <p>
+                  Displaying long responses on a small screen required building a custom text rendering engine.
+                  I implemented word-wrapping logic that breaks text at word boundaries to avoid cutting words
+                  mid-line, a page buffering system that divides long responses into screen-sized pages, and
+                  smooth scrolling controlled by two physical push buttons (up and down). Hardware interrupts
+                  on the button pins ensure that scrolling input is captured instantly, even while the device
+                  is processing or waiting for a network response.
+                </p>
+                <h4>User Experience Design</h4>
+                <p>
+                  Because network requests to the ChatGPT API can take several seconds, I designed the interaction
+                  flow to keep the user informed at every stage. A loading animation plays while the request is
+                  in flight, and responses are displayed incrementally as they are parsed rather than waiting for
+                  the entire response to arrive. This chunked display approach makes the device feel significantly
+                  more responsive. I also added visual indicators for Wi-Fi connection status and error states so
+                  the user always knows what the device is doing.
+                </p>
+                <h4>Results and Impact</h4>
+                <p>
+                  The finished device functions as a self-contained AI assistant that fits in the palm of your
+                  hand. It demonstrates that powerful cloud-based AI services can be made accessible through
+                  minimal, low-cost hardware. The total component cost is under twenty dollars, making it a
+                  compelling proof of concept for applications in education, accessibility, and rapid prototyping
+                  of AI-powered tools. Building this project strengthened my skills in embedded networking, display
+                  driver programming, interrupt-driven input handling, and designing user experiences under the
+                  constraints of limited screen real estate and processing power. It also gave me a deeper
+                  appreciation for how much engineering goes into making technology feel intuitive. Even something
+                  as simple as scrolling through text on a small screen requires careful thought about timing,
+                  debouncing, buffer management, and visual feedback. These are the details that separate a working
+                  prototype from a polished product, and this project pushed me to care about both.
                 </p>
               </div>
               <p class="project-hint">Click to go back</p>
