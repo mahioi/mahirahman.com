@@ -137,7 +137,7 @@ function openProjectModal(card) {
 
   projectModal.classList.add('active');
   document.body.style.overflow = 'hidden';
-  projectModal.scrollTop = 0;
+  projectModal.querySelector('.project-modal').scrollTop = 0;
 }
 
 function closeProjectModal() {
@@ -173,23 +173,23 @@ document.querySelectorAll('.expand-btn').forEach(btn => {
   });
 });
 
-lightboxClose.addEventListener('click', () => {
+function closeLightbox() {
   lightbox.classList.remove('active');
-  document.body.style.overflow = '';
-});
-
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) {
-    lightbox.classList.remove('active');
+  if (!projectModal.classList.contains('active')) {
     document.body.style.overflow = '';
   }
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) closeLightbox();
 });
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     if (lightbox.classList.contains('active')) {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
+      closeLightbox();
     } else if (projectModal.classList.contains('active')) {
       closeProjectModal();
     }
