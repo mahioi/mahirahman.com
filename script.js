@@ -87,13 +87,75 @@ navLinksContainer.querySelectorAll('a').forEach(link => {
   });
 });
 
-// ===== PROJECT CARD FLIP =====
+// ===== PROJECT MODAL =====
+const projectModal    = document.getElementById('projectModal');
+const projectModalClose = document.getElementById('projectModalClose');
+const projectModalHero  = document.getElementById('projectModalHero');
+const projectModalMeta  = document.getElementById('projectModalMeta');
+const projectModalBody  = document.getElementById('projectModalBody');
+
+function openProjectModal(card) {
+  const front   = card.querySelector('.project-card-front');
+  const back    = card.querySelector('.project-card-back');
+  const details = back.querySelector('.project-details');
+
+  // Hero image
+  const heroImg = front.querySelector('img');
+  if (heroImg) {
+    projectModalHero.src = heroImg.src;
+    projectModalHero.alt = heroImg.alt;
+    projectModalHero.style.display = 'block';
+  } else {
+    projectModalHero.style.display = 'none';
+  }
+
+  // Title, date, tags
+  const title = back.querySelector('h3') ? back.querySelector('h3').textContent : '';
+  const date  = front.querySelector('.project-date') ? front.querySelector('.project-date').textContent : '';
+  const tags  = [...front.querySelectorAll('.project-tag')].map(t =>
+    `<span class="project-tag">${t.textContent}</span>`
+  ).join('');
+
+  projectModalMeta.innerHTML = `
+    <h3 id="projectModalTitle">${title}</h3>
+    <p class="project-date">${date}</p>
+    <div class="modal-tags">${tags}</div>
+  `;
+
+  // Body content — clone so we don't disturb the hidden source
+  projectModalBody.innerHTML = details ? details.innerHTML : '';
+
+  // Make strip images in modal open the lightbox
+  projectModalBody.querySelectorAll('img[data-full]').forEach(img => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', (e) => {
+      e.stopPropagation();
+      lightboxImg.src = img.getAttribute('data-full');
+      lightbox.classList.add('active');
+    });
+  });
+
+  projectModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  projectModal.scrollTop = 0;
+}
+
+function closeProjectModal() {
+  projectModal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', (e) => {
-    // Don't flip if clicking the expand button
     if (e.target.closest('.expand-btn')) return;
-    card.classList.toggle('flipped');
+    openProjectModal(card);
   });
+});
+
+projectModalClose.addEventListener('click', closeProjectModal);
+
+projectModal.addEventListener('click', (e) => {
+  if (e.target === projectModal) closeProjectModal();
 });
 
 // ===== LIGHTBOX =====
@@ -124,9 +186,13 @@ lightbox.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
+  if (e.key === 'Escape') {
+    if (lightbox.classList.contains('active')) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    } else if (projectModal.classList.contains('active')) {
+      closeProjectModal();
+    }
   }
 });
 

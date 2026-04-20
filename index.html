@@ -354,6 +354,96 @@
           </div>
         </div>
 
+        <!-- Project 4: Introductory PCB Design -->
+        <div class="project-card" id="project-pcb">
+          <div class="project-card-inner">
+            <div class="project-card-front">
+              <div class="project-image-placeholder">
+                <img src="images/LayerView.png" alt="Altium Designer — routed PCB layout" data-full="images/LayerView.png">
+                <button class="expand-btn" data-img="images/LayerView.png" aria-label="View full image">
+                  <svg viewBox="0 0 20 20" fill="none"><path d="M3 3h5M3 3v5M17 3h-5M17 3v5M3 17h5M3 17v-5M17 17h-5M17 17v-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+              </div>
+              <div class="project-info">
+                <span class="project-tag">PCB Design</span>
+                <span class="project-tag">EDA Tools</span>
+                <h3>Introductory PCB Design in Altium Designer</h3>
+                <p class="project-date">Spring 2025 | ECE 1100 Discovery Project</p>
+                <p class="project-hint">Click to read more</p>
+              </div>
+            </div>
+            <div class="project-card-back">
+              <h3>Introductory PCB Design in Altium Designer</h3>
+              <div class="project-details">
+                <h4>Overview</h4>
+                <p>
+                  For my ECE 1100 Discovery Project, I designed a complete PCB from scratch using Altium Designer,
+                  one of the industry-standard EDA tools used by professional hardware engineers. Starting with no
+                  prior PCB design experience, I worked through the full professional workflow: schematic capture,
+                  component sourcing via Manufacturer Part Search, footprint assignment, and interactive trace routing
+                  on a two-layer board. The circuit itself is intentionally minimal — a three-component series LED
+                  circuit with a CR2032 coin cell (BT1), a 330&Omega; current-limiting resistor (R1), and an LED (D1)
+                  — keeping the focus squarely on learning the tool and understanding the process.
+                </p>
+                <div class="project-img-strip">
+                  <figure>
+                    <img src="images/SchematicView.png" alt="Altium Designer schematic capture" data-full="images/SchematicView.png">
+                    <figcaption>Schematic Capture</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="images/LayerView.png" alt="Altium Designer 2D PCB layout with routed traces" data-full="images/LayerView.png">
+                    <figcaption>PCB Layout &amp; Routing</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="images/3dView.png" alt="Altium Designer 3D PCB render" data-full="images/3dView.png">
+                    <figcaption>3D Board View</figcaption>
+                  </figure>
+                </div>
+                <h4>Design Workflow</h4>
+                <p>
+                  The project followed the same schematic-to-PCB pipeline used in real hardware development. In the
+                  schematic editor I placed components, wired nets, and assigned designators. Rather than relying on
+                  local library files, I sourced every component through Altium's online Manufacturer Part Search,
+                  which pulls verified footprints directly from manufacturer data — the same approach used in industry
+                  to avoid footprint errors before fabrication. After validating the schematic, I pushed the design to
+                  the PCB editor via an Engineering Change Order (ECO), arranged the three components within the board
+                  outline with attention to courtyard clearance and silkscreen labeling, then used the interactive
+                  router to complete all electrical connections on the Top Layer.
+                </p>
+                <h4>Skills Developed</h4>
+                <p>
+                  Working through this project built concrete familiarity with the tools and concepts that hardware
+                  engineers use daily: schematic capture and net assignment, Manufacturer Part Search for sourcing
+                  real components with verified footprints (CR2032, CRCW2010330R resistor, LTST-C230EKT LED),
+                  PCB layer stack awareness (courtyard, silkscreen, copper pour), interactive trace routing,
+                  Design Rule Check (DRC) to catch clearance and connectivity violations, and the ECO workflow
+                  that synchronizes schematic changes to the board. Each of these is a building block that scales
+                  directly to more complex multi-layer designs.
+                </p>
+                <h4>Challenges</h4>
+                <p>
+                  The steepest learning curve was navigating Altium Designer's library system. Altium 26 relies on
+                  online Manufacturer Part Search rather than the legacy local .IntLib files that many tutorials
+                  reference, which required troubleshooting footprint resolution before components could be
+                  successfully transferred to the PCB editor. Working through that discrepancy was itself a valuable
+                  lesson: real EDA tools change between versions, and the ability to read documentation, interpret
+                  error messages, and adapt is as important as knowing the tool itself.
+                </p>
+                <h4>Takeaway</h4>
+                <p>
+                  This project established a foundation in professional PCB design that I intend to build on
+                  throughout my ECE coursework. Understanding the full schematic-to-routed-board pipeline —
+                  even on a simple circuit — makes the leap to multi-layer analog or mixed-signal boards
+                  significantly more approachable. It also reinforced that good hardware engineering begins
+                  long before routing: component selection, footprint accuracy, and design rule validation
+                  upstream are what make a board manufacturable.
+                </p>
+              </div>
+              <p class="project-hint">Click to go back</p>
+            </div>
+          </div>
+        </div>
+
         <!-- Project 3: ESP32 ChatGPT Display -->
         <div class="project-card" id="project-chatgpt">
           <div class="project-card-inner">
@@ -635,6 +725,18 @@
       <p class="footer-sub">Georgia Institute of Technology &middot; Electrical Engineering</p>
     </div>
   </footer>
+
+  <!-- ===== PROJECT MODAL ===== -->
+  <div class="project-modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
+    <div class="project-modal">
+      <button class="project-modal-close" id="projectModalClose" aria-label="Close project">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <img class="project-modal-hero" id="projectModalHero" src="" alt="">
+      <div class="project-modal-meta" id="projectModalMeta"></div>
+      <div class="project-modal-body" id="projectModalBody"></div>
+    </div>
+  </div>
 
   <!-- ===== LIGHTBOX MODAL ===== -->
   <div class="lightbox" id="lightbox">
