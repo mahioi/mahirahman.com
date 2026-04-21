@@ -105,8 +105,14 @@ function openProjectModal(card) {
     projectModalHero.src = heroImg.src;
     projectModalHero.alt = heroImg.alt;
     projectModalHero.style.display = 'block';
+    projectModalHero.style.cursor = 'zoom-in';
+    projectModalHero.onclick = () => {
+      lightboxImg.src = heroImg.getAttribute('data-full') || heroImg.src;
+      lightbox.classList.add('active');
+    };
   } else {
     projectModalHero.style.display = 'none';
+    projectModalHero.onclick = null;
   }
 
   // Title, date, tags
